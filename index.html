@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, Papel o Tijeras!</title>
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <section class="coso-entero">
-        <h1>Piedra Papel o Tijeras!</h1>
+        <h1 class="animate__animated animate__bounceInLeft">Piedra Papel o Tijeras!</h1>
 
-        <section>
-            <div class="jugada 1">
+        <section class="section1">
+            <div id="jugada1" class="no-mostrar">
                 <div class="card-container">
                     <p class="selec-jugad">Selecciona tu jugada!</p>
                     <button class="card 1" id="piedra">Piedra</button>
@@ -21,11 +25,16 @@
                     </div>
                 </div>
             </div>
-            <div class="jugada 2">
+            <div id="jugada2"  class="no-mostrar">
                 <p>Tu jugada es:</p>
                 <p id="jugadaElegida"></p>
                 <p id="esperarOponente"></p>
                 <p id="jugadaOponente"></p>
+            </div>
+            <div id="jugada3" class="no-mostrar">
+            <p>RESULTADO</p>
+                <p id="finJuego"></p>
+                <a href="javascript:document.location.reload();" class="card 4" >Volver a Jugar</a>
             </div>
         </section>
 

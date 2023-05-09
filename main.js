@@ -1,46 +1,3 @@
-
-// 0: Iniciar el juego
-/* alert('Inicia el juego');
-alert('Elige tu ataque');
-
-//1: Elegir ataque de jugador 
-let playerJugada = prompt('Escribe 0 para piedra, 1 para papel y 2 para tijeras');
-
-if (playerJugada == 0){
-    alert('Elegiste Piedra');
-} else if (playerJugada == 1){
-    alert('Elegiste Papel');
-} else if (playerJugada  == 2){
-    alert('Elegiste tijeras');
-} else{
-    alert('Elige una jugada entre 0, 1, o 2')
-};
-// 2: Elegir ataque ALEATORIO del oponente
-
-let enemyJugada = Math.round(Math.random() * 2);
-
-if (enemyJugada == 0){
-    alert('El oponente eligió Piedra');
-} else if (enemyJugada == 1){
-    alert('El oponente eligió Papel');
-} else if (enemyJugada  == 2){
-    alert('El oponente eligió tijeras');
-}
-//3: Mostrar el resultado
-
-if (playerJugada == enemyJugada){
-    alert('Empate');
-} else if (playerJugada == 0 && enemyJugada == 2){
-    alert('Ganaste esta partida');
-} else if (playerJugada == 1 && enemyJugada == 0){
-    alert('Ganaste esta partida');
-} else if (playerJugada == 2 && enemyJugada == 1){
-    alert('Ganaste esta partida');
-} else {
-    alert('Perdiste. Intentalo de nuevo!');
-} */
-
-
 //Variables
 
 const piedra = document.getElementById('piedra');
@@ -52,6 +9,14 @@ const jugadaOponente = document.getElementById('jugadaOponente');
 
 const jugadaElegida = document.getElementById('jugadaElegida');
 
+const jugada1 = document.getElementById('jugada1');
+const jugada2 = document.getElementById('jugada2');
+const jugada3 = document.getElementById('jugada3');
+
+const finJuego = document.getElementById('finJuego');
+
+const reset = document.getElementById('reset');
+
 
 
 piedra.addEventListener('click', jugadaPiedra);
@@ -60,7 +25,12 @@ papel.addEventListener('click', jugadaPapel);
 
 tijera.addEventListener('click', jugadaTijera);
 
+
+
 //Jugadas Nuestras:
+setTimeout(()=> {
+    jugada1.className = 'animate__animated animate__bounceInLeft jugada 1';
+}, 1000);
 
 function jugadaPiedra(){
     jugadaElegida.innerHTML = 'PIEDRA';
@@ -78,6 +48,10 @@ function jugadaTijera(){
 //------------------- Jugadas oponente -------------------------------
 
 function turnoOponente(){
+    jugada1.className = 'jugada 1 animate__animated animate__bounceOutRight';
+    setTimeout(() => {jugada1.className = 'no-mostrar'},400);
+    setTimeout(() => {
+        jugada2.className = 'jugada 2 animate__animated animate__bounceInLeft'},500);
     esperarOponente.innerHTML = 'La jugada del oponente es...';
     jugadaOponente.innerHTML = '3'
     setTimeout(() => {
@@ -93,4 +67,26 @@ const opcionesOp = ["PIEDRA", "PAPEL", "TIJERA"];
 function resultadoOp(){
     const aleatorio = opcionesOp[Math.floor(Math.random() * opcionesOp.length)];
     jugadaOponente.innerHTML = aleatorio;
+    resultadoFinal();
+}
+
+function resultadoFinal(){
+    if(jugadaElegida.textContent == jugadaOponente.textContent){
+        finJuego.innerHTML = 'EMPATE ._.'
+    } else if(jugadaElegida.textContent == 'PIEDRA' && jugadaOponente.textContent == 'TIJERA'){
+        finJuego.innerHTML = 'GANASTE!!'
+    } else if(jugadaElegida.textContent == 'PAPEL' && jugadaOponente.textContent == 'PIEDRA'){
+        finJuego.innerHTML = 'GANASTE!!'
+    } else if(jugadaElegida.textContent == 'TIJERAS' && jugadaOponente.textContent == 'PAPEL'){
+        finJuego.innerHTML = 'GANASTE!!'
+    } else {
+        finJuego.innerHTML = 'PERDISTE :('
+    };
+    jugada3.className = 'jugada 3 animate__animated animate__bounceInLeft';
+
+}
+
+
+function resetear(){
+    document.location.reload();
 }
