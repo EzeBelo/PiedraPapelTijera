@@ -41,7 +41,7 @@ function jugadaPapel(){
     turnoOponente();
 }
 function jugadaTijera(){
-    jugadaElegida.innerHTML = 'TIJERAS';
+    jugadaElegida.innerHTML = 'TIJERA';
     turnoOponente();
 };
 
@@ -77,7 +77,7 @@ function resultadoFinal(){
         finJuego.innerHTML = 'GANASTE!!'
     } else if(jugadaElegida.textContent == 'PAPEL' && jugadaOponente.textContent == 'PIEDRA'){
         finJuego.innerHTML = 'GANASTE!!'
-    } else if(jugadaElegida.textContent == 'TIJERAS' && jugadaOponente.textContent == 'PAPEL'){
+    } else if(jugadaElegida.textContent == 'TIJERA' && jugadaOponente.textContent == 'PAPEL'){
         finJuego.innerHTML = 'GANASTE!!'
     } else {
         finJuego.innerHTML = 'PERDISTE :('
