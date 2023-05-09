@@ -41,7 +41,7 @@ function jugadaPapel(){
     turnoOponente();
 }
 function jugadaTijera(){
-    jugadaElegida.innerHTML = 'TIJERA';
+    jugadaElegida.innerHTML = 'TIJERAS';
     turnoOponente();
 };
 
